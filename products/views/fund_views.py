@@ -7,6 +7,10 @@ from ..serializers import Pd_FundSerializer
 
 
 class Pd_FundView(APIView):
+    '''
+    (POST) /funds
+    (GET) /funds
+    '''
     def post(self, request):
         data = request.data
         serializer = Pd_FundSerializer(data=data)
