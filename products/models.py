@@ -8,9 +8,9 @@ from accounts.models import Account
 class Product(models.Model):
     title       = models.CharField(max_length=200, unique=True)
     publisher   = models.ForeignKey(Account, on_delete=models.CASCADE)
-    amount      = models.DecimalField(max_digits=10, decimal_places=3, default=0.00)
+    amount      = models.IntegerField()
     end_date    = models.DateTimeField()
-    one_price   = models.DecimalField(max_digits=10, decimal_places=3, default=0.00)
+    one_price   = models.IntegerField()
     fund        = models.ManyToManyField(Account, related_name='fund', through='Pd_fund')
     description = models.TextField()
     created_at  = models.DateTimeField(auto_now_add=True)
