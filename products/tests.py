@@ -27,7 +27,7 @@ class ProductTestCase(APITestCase):
             "description" : "test_description"
         }
 
-        response = self.client.post('/products/', data=data_01, format="json")
+        response = self.client.post('/products', data=data_01, format="json")
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(Product.objects.count(), 1)
 
@@ -40,7 +40,7 @@ class ProductTestCase(APITestCase):
             "description" : "test_description"
         }
 
-        response = self.client.post('/products/', data=data_02, format="json")
+        response = self.client.post('/products', data=data_02, format="json")
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(Product.objects.count(), 2)
 
@@ -53,7 +53,7 @@ class ProductTestCase(APITestCase):
             "description" : "test_description"
         }
 
-        response = self.client.post('/products/', data=data_non_amount, format="json")
+        response = self.client.post('/products', data=data_non_amount, format="json")
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
         data_non_one_price = {
@@ -64,7 +64,7 @@ class ProductTestCase(APITestCase):
             "description" : "test_description"
         }
 
-        response = self.client.post('/products/', data=data_non_one_price, format="json")
+        response = self.client.post('/products', data=data_non_one_price, format="json")
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
         data_non_publisher = {
@@ -75,7 +75,7 @@ class ProductTestCase(APITestCase):
             "description" : "test_description"
         }
 
-        response = self.client.post('/products/', data=data_non_publisher, format="json")
+        response = self.client.post('/products', data=data_non_publisher, format="json")
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
         data_non_end_date = {
@@ -86,7 +86,7 @@ class ProductTestCase(APITestCase):
             "description" : "test_description"
         }
 
-        response = self.client.post('/products/', data=data_non_end_date, format="json")
+        response = self.client.post('/products', data=data_non_end_date, format="json")
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
         # 필수 데이터가 부족한 경우 에러 종료
 
