@@ -10,6 +10,12 @@ from ..serializers import ProductsSerializer, ProductDetailSerializer
 
 
 class ProductsListView(APIView):
+    '''
+    (POST) /products
+    (GET) /products
+    (GET) /products?search=<str:title>
+    (GET) /products?order_by=<str:"생성일"or"총펀딩금액">
+    '''
     def post(self, request):
         data = request.data
         serializer = ProductsSerializer(data=data)
@@ -38,6 +44,11 @@ class ProductsListView(APIView):
         return Response(serializer.data)
 
 class ProductsDetailView(APIView):
+    '''
+    (GET) /products/<int:pk>
+    (PATCH) /products/<int:pk>
+    (DELETE) /products/<int:pk>
+    '''
     def get(self, request, pk):
         product = get_object_or_404(Product, pk=pk)
         serializer = ProductDetailSerializer(product)
