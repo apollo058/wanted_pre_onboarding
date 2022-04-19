@@ -1,7 +1,7 @@
 # Wanted_pre_onboarding
 ---
 ## 모델링
-
+![스크린샷 2022-04-20 오전 2 20 47](https://user-images.githubusercontent.com/77102285/164071274-ec320a76-3241-4753-8e82-271a0d5fc667.png)
 
 
 ## 요구사항 및 구현 설명
